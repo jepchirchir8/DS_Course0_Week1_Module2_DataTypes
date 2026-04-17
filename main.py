@@ -85,14 +85,13 @@ SELECT name, age, hungry
 """,conn2)
 df_hungry_ages
 
-# CodeGrade step8
+## CodeGrade step8
 df_4_oldest = pd.read_sql("""
 SELECT name, age, breed
 FROM dogs
-ORDER BY age DESC, id ASC
+ORDER BY age DESC, id DESC
 LIMIT 4
 """, conn2)
-
 # CodeGrade step0
 
 # Run this cell without changes
