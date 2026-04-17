@@ -68,12 +68,11 @@ conn2 = sqlite3.connect('DS_Course1_Week1_Module2_SQLQueries/dogs.db')
 pd.read_sql("SELECT * FROM dogs;", conn2)
 
 # CodeGrade step6
-# We use ROWID to ensure the dogs come out in the exact order they were inserted
 df_hungry = pd.read_sql("""
 SELECT name, age, breed
 FROM dogs
 WHERE hungry = 1
-ORDER BY ROWID ASC
+ORDER BY id ASC
 """, conn2)
 
 # CodeGrade step7
@@ -90,7 +89,7 @@ df_hungry_ages
 df_4_oldest = pd.read_sql("""
 SELECT name, age, breed
 FROM dogs
-ORDER BY age DESC
+ORDER BY age DESC, id ASC
 LIMIT 4
 """, conn2)
 
