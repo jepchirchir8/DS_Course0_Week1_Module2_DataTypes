@@ -69,12 +69,13 @@ pd.read_sql("SELECT * FROM dogs;", conn2)
 
 # CodeGrade step6
 # Replace None with your code
+# CodeGrade step6
 df_hungry = pd.read_sql("""
 SELECT name, age, breed
-                        FROM dogs
-                        WHERE hungry == 1
-""",conn2)
-df_hungry
+FROM dogs
+WHERE hungry = 1
+ORDER BY id ASC
+""", conn2)
 
 # CodeGrade step7
 # Replace None with your code
@@ -87,11 +88,10 @@ SELECT name, age, hungry
 df_hungry_ages
 
 # CodeGrade step8
-# Replace None with your code
 df_4_oldest = pd.read_sql("""
 SELECT name, age, breed
 FROM dogs
-ORDER BY age DESC, name ASC
+ORDER BY age DESC
 LIMIT 4
 """, conn2)
 
