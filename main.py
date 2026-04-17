@@ -67,13 +67,14 @@ conn2 = sqlite3.connect('DS_Course1_Week1_Module2_SQLQueries/dogs.db')
 # Select all
 pd.read_sql("SELECT * FROM dogs;", conn2)
 
-# CodeGrade step6
-df_hungry = pd.read_sql("""
+## CodeGrade step6
+query6 = """
 SELECT name, age, breed
 FROM dogs
 WHERE hungry = 1
 ORDER BY id ASC
-""", conn2)
+"""
+df_hungry = pd.read_sql(query6, conn2)
 
 # CodeGrade step7
 # Replace None with your code
@@ -85,13 +86,14 @@ SELECT name, age, hungry
 """,conn2)
 df_hungry_ages
 
-## CodeGrade step8
+# CodeGrade step8
 df_4_oldest = pd.read_sql("""
 SELECT name, age, breed
 FROM dogs
-ORDER BY age DESC, id DESC
+ORDER BY age DESC, rowid ASC
 LIMIT 4
 """, conn2)
+df_4_oldest
 # CodeGrade step0
 
 # Run this cell without changes
