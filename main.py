@@ -67,12 +67,12 @@ conn2 = sqlite3.connect('DS_Course1_Week1_Module2_SQLQueries/dogs.db')
 # Select all
 pd.read_sql("SELECT * FROM dogs;", conn2)
 
-### CodeGrade step6
+## CodeGrade step6
 query6 = """
 SELECT name, age, breed
 FROM dogs
 WHERE hungry = 1
-ORDER BY age ASC
+ORDER BY id ASC
 """
 df_hungry = pd.read_sql(query6, conn2)
 
@@ -92,10 +92,10 @@ SELECT name, age, breed
 FROM (
     SELECT name, age, breed
     FROM dogs
-    ORDER BY age DESC
+    ORDER BY age DESC, name DESC
     LIMIT 4
 )
-ORDER BY breed ASC
+ORDER BY age DESC, name DESC
 """, conn2)
 df_4_oldest
 # CodeGrade step0
